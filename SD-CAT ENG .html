@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <img src="https://i.imgur.com/CfocZVv.png" alt="Logo CAT" width="100" height="100">
+  </body>
+</html>
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Home screen</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f5f5f5;
+      }
+      .container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 40px;
+        background-color: #fff;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+      }
+      h1 {
+        font-size: 36px;
+        color: #1f3a6f;
+        margin-bottom: 20px;
+      }
+      p {
+        font-size: 18px;
+        color: #333;
+        margin-bottom: 40px;
+      }
+      a {
+        display: inline-block;
+        background-color: #1f3a6f;
+        color: #fff;
+        font-size: 20px;
+        padding: 10px 20px;
+        border-radius: 5px;
+        text-decoration: none;
+      }
+      a:hover {
+        background-color: #2a5298;
+      }
+      .info {
+        background-color: #f5f5f5;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        margin-top: 40px;
+      }
+    </style>
+  </head>
+  <body>
+    <!DOCTYPE html>
+<html>
+<head>
+	<title>Ejemplo de API con jQuery</title>
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+	<style>
+		.container {
+			margin-top: 50px;
+		}
+	</style>
+</head>
+<body>
+	<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>SD-CAT Air Quality API Example</title>
+	<style>
+		.table {
+		    border-collapse: collapse;
+		    width: 100%;
+		}
+
+		.table th,
+		.table td {
+		    border: 1px solid #ddd;
+		    padding: 8px;
+		    text-align: left;
+		}
+
+		.table th {
+		    background-color: #4CAF50;
+		    color: white;
+		}
+
+		.table tr:nth-child(even) {
+		    background-color: #f2f2f2;
+		}
+
+		.good {
+		    background-color: green;
+		    color: white;
+		}
+
+		.moderate {
+		    background-color: yellow;
+		    color: black;
+		}
+
+		.unhealthy-sensitive {
+		    background-color: orange;
+		    color: black;
+		}
+
+		.unhealthy {
+		    background-color: red;
+		    color: white;
+		}
+
+		.very-unhealthy {
+		    background-color: purple;
+		    color: white;
+		}
+
+		.hazardous {
+		    background-color: maroon;
+		    color: white;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<h1>Welcome to SD-CAT</h1>
+		<p>Click on the link below for information on air quality in El Salvador:</p>
+		<a href="#" id="enlace-api">Air quality in El Salvador</a>
+		<section id="seccion-api" style="display:none;">
+			<h2>Air quality information at this location</h2>
+			<table class="table">
+				<thead>
+					<tr>
+						<th>Parámetro</th>
+						<th>Valor</th>
+					</tr>
+				</thead>
+				<tbody id="datos">
+				</tbody>
+			</table>
+		</section>
+	</div>
+
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<script>
+		$(document).ready(function() {
+			var token = '77ace265ff56bffa10dbb34dbf0a51c20ce612c9';
+			var url = 'https://api.waqi.info/feed/here/?token=' + token;
+
+			$('#enlace-api').click(function() {
+				$.ajax({
+					url: url,
+					method: 'GET',
+					dataType: 'json',
+					success: function(data) {
+						var resultados = data.data.iaqi;
+						for (var parametro in resultados) {
+							var valor = resultados[parametro].v;
+							var color = '';
+							if (valor <= 50) {
+								color = 'good';
+							} else if (valor <= 100) {
+								color = 'moderate';
+							} else if (valor <= 150) {
+								color = 'unhealthy-sensitive';
+							} else if (valor <= 200) {
+								color = 'unhealthy';
+							} else if (valor <= 300) {
+								color = 'very-unhealthy';
+							} else {
+								color = 'hazardous';
+							}
+							$('#datos').append('<tr><td>' + parametro + '</td><td class="' + color + '">' + valor + '</td></tr>');
+						}
+						$('#seccion-api').show();
+					},
+					error: function() {
+
+						alert('Error al obtener los datos de la API');
+					}
+				});
+				return false;
+			});
+		});
+	</script>
+</body>
+</html>
+            <p>ㅤ
+    <div class="info">
+      <p>In El Salvador, air quality is affected by various sources of pollution, such as vehicle exhaust emissions, waste burning, and industrial activity. In addition, the country has suffered in recent years from forest fires that also contribute to air pollution.
+        
+        It is important to address these challenges through policies and actions to reduce air pollution and improve the quality of life for people in El Salvador and around the world. This includes promoting cleaner technologies and practices, improving public transportation, and encouraging renewable energy and sustainable agriculture. Education and public awareness are also key to promoting changes in behavior and decision making that support a healthier environment.</p>
+    </div>
+     <p>ㅤ
+
+      <table>
+        <thead>
+          <tr>
+            <th>AQI</th>
+            <th>Air pollution level</th>
+            <th>Health implications</th>
+            <th>Precautionary Statement (for PM2.5)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="background-color: #008000;">
+            <td>0-50</td>
+            <td>Good</td>
+            <td>Air quality is considered satisfactory and air pollution poses little or no risk.</td>
+            <td>None</td>
+          </tr>
+          <tr style="background-color: #FFFF00;">
+            <td>51-100</td>
+            <td>Moderate</td>
+            <td>Air quality is acceptable; however, for some pollutants there may be a moderate health concern for a very small number of people who are particularly sensitive to air pollution.</td>
+            <td>Active children and adults, as well as people with respiratory diseases such as asthma, should limit prolonged outdoor activity.</td>
+          </tr>
+          <tr style="background-color: #FFA500;">
+            <td>101-150</td>
+            <td>Unhealthy for sensitive groups</td>
+            <td>Members of sensitive groups may experience health effects. The general public is not likely to be affected.</td>
+            <td>Active children and adults, as well as people with respiratory diseases such as asthma, should limit prolonged outdoor activity.</td>
+          </tr>
+          <tr style="background-color: #FF0000;">
+            <td>151-200</td>
+            <td>Unhealthy</td>
+            <td>Everyone may begin to experience health effects; members of sensitive groups may experience more severe health effects.</td>
+            <td>Active children and adults, as well as people with respiratory diseases such as asthma, should avoid prolonged outdoor activity; all others, especially children, should limit prolonged outdoor activity.</td>
+          </tr>
+          <tr style="background-color: #800080; color: #FFF;">
+            <td>201-300</td>
+            <td>Very unhealthy</td>
+            <td>Health warnings under emergency conditions. It is more likely that the entire population will be affected.</td>
+            <td>Active children and adults, as well as people with respiratory diseases such as asthma, should avoid all outdoor activity; all others, especially children, should limit outdoor activity.</td>
+          </tr>
+          <tr style="background-color: #800000; color: #FFF;">
+            <td>300+</td>
+            <td>Dangerous</td>
+            <td>Health alert: all may experience more serious health effects</td>
+            <td>Everyone should avoid all outdoor activity.</td>
+          </tr>
+        </tbody>
+      </table> 
+        <footer>
+        <p>
+            <p>ㅤ
+            <p>
+            <p>
+            <p>
+            <p>
+            <p>
+            <p>
+                <p><p>
+            <p>ㅤ
+                <p><p>
+            <p>
+                <p><p>
+            <p>ㅤ
+                <p>
+   <p>Created by SD-CAT®, 2023</p>
+   <p>Contact: SD-CAT@mailcorp.sv</p>
+</footer>
